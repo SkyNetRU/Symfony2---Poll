@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Questions list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Test_id</th>
+                <th>Question</th>
+                <th>Type</th>
+                <th>Published</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for question in questions %}
+            <tr>
+                <td><a href="{{ path('questions_show', { 'id': question.id }) }}">{{ question.id }}</a></td>
+                <td>{{ question.testid }}</td>
+                <td>{{ question.question }}</td>
+                <td>{{ question.type }}</td>
+                <td>{% if question.published %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('questions_show', { 'id': question.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('questions_edit', { 'id': question.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('questions_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

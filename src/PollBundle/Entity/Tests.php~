@@ -1,0 +1,96 @@
+<?php
+namespace PollBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity(repositoryClass="TestsRepository")
+ * @ORM\Table(name="tests")
+ */
+class Tests
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $test_name;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Questions", mappedBy="tests", cascade={"all"}, orphanRemoval=true )
+     */
+    protected $questions;
+
+    public function __construct()
+    {
+        $this->questions = new ArrayCollection();
+    }
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    protected $published = false;
+
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set test_name
+     *
+     * @param string $testName
+     * @return Tests
+     */
+    public function setTestName($testName)
+    {
+        $this->test_name = $testName;
+
+        return $this;
+    }
+
+    /**
+     * Get test_name
+     *
+     * @return string 
+     */
+    public function getTestName()
+    {
+        return $this->test_name;
+    }
+
+    /**
+     * Set published
+     *
+     * @param boolean $published
+     * @return Tests
+     */
+    public function setPublished($published)
+    {
+        $this->published = $published;
+
+        return $this;
+    }
+
+    /**
+     * Get published
+     *
+     * @return boolean 
+     */
+    public function getPublished()
+    {
+        return $this->published;
+    }
+}
