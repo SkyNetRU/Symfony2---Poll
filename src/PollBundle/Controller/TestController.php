@@ -30,6 +30,7 @@ class TestController extends Controller
 
         return $this->render('test/index.html.twig', array(
             'tests' => $tests,
+            'count' => 0
         ));
     }
 

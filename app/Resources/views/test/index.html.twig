@@ -1,19 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
+{% block container %}
     <h1>Test list</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Test_name</th>
-                <th>Published</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
+
+        {% set count = 0 %}
         {% for test in tests %}
+
+            {% if count is even %}
+                <div class="row">
+            {% endif %}
+
+            <div class="col-md-6 portfolio-item">
+                <a href="{{ path('test_show', { 'id': test.id }) }}">{{ test.id }}
+                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                </a>
+                <h3>
+                    <a href="{{ path('test_show', { 'id': test.id }) }}">{{ test.testname }}</a>
+                </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+
             <tr>
                 <td><a href="{{ path('test_show', { 'id': test.id }) }}">{{ test.id }}</a></td>
                 <td>{{ test.testname }}</td>
@@ -29,13 +36,21 @@
                     </ul>
                 </td>
             </tr>
+                    {%  if count is odd %}
+                        </div>
+                    {% endif %}
+            {% set count = count + 1  %}
         {% endfor %}
-        </tbody>
-    </table>
+
 
     <ul>
         <li>
             <a href="{{ path('test_new') }}">Create a new entry</a>
         </li>
     </ul>
+
+    {% block row %}
+
 {% endblock %}
+{% endblock %}
+
