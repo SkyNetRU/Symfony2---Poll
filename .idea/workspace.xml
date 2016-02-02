@@ -2,13 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c519c5e-7ed9-428b-921f-34738a9d14f3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PollBundle/Entity/Answers.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PollBundle/Entity/Questions.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PollBundle/Entity/Tests.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AppKernel.php" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
+      <change type="DELETED" beforePath="C:\OpenServer\domains\symfony\poll\src\PollBundle\Controller\AnswersController.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\OpenServer\domains\symfony\poll\src\PollBundle\Controller\QuestionsController.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\OpenServer\domains\symfony\poll\src\PollBundle\Controller\TestsController.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\OpenServer\domains\symfony\poll\src\PollBundle\Entity\AnswersRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\OpenServer\domains\symfony\poll\src\PollBundle\Entity\QuestionsRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\OpenServer\domains\symfony\poll\src\PollBundle\Entity\TestsRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\OpenServer\domains\symfony\poll\src\PollBundle\Entity\answers.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\OpenServer\domains\symfony\poll\src\PollBundle\Entity\questions.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\OpenServer\domains\symfony\poll\src\PollBundle\Entity\tests.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\OpenServer\domains\symfony\poll\src\PollBundle\Form\AnswersType.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\OpenServer\domains\symfony\poll\src\PollBundle\Form\QuestionsType.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\OpenServer\domains\symfony\poll\src\PollBundle\Form\TestsType.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/questions/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/questions/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/questions/show.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/questions/show.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="poll.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,56 +41,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AppKernel.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.461538" vertical-offset="17" max-vertical-offset="697">
-              <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
-              <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tests.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PollBundle/Entity/Tests.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="21.26923" vertical-offset="1403" max-vertical-offset="2295">
-              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Questions.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PollBundle/Entity/Questions.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-35.307693" vertical-offset="0" max-vertical-offset="3723">
-              <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Answers.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PollBundle/Entity/Answers.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-37.26923" vertical-offset="51" max-vertical-offset="2074">
-              <caret line="60" column="7" selection-start-line="60" selection-start-column="7" selection-end-line="60" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PollBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -95,48 +53,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AnswersController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/PollBundle/Controller/AnswersController.php">
+      <file leaf-file-name="Question.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PollBundle/Entity/Question.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5879699" vertical-offset="408" max-vertical-offset="2397">
-              <caret line="52" column="79" selection-start-line="52" selection-start-column="79" selection-end-line="52" selection-end-column="79" />
+            <state vertical-scroll-proportion="13.423077" vertical-offset="3120" max-vertical-offset="3808">
+              <caret line="164" column="55" selection-start-line="164" selection-start-column="55" selection-end-line="164" selection-end-column="55" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestsRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PollBundle/Entity/TestsRepository.php">
+      <file leaf-file-name="Answer.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PollBundle/Entity/Answer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="459">
-              <caret line="14" column="40" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="40" />
-              <folding>
-                <marker date="1454354527348" expanded="true" signature="367:423" placeholder="SELECT p FRO..PollBundle..." />
-              </folding>
+            <state vertical-scroll-proportion="-3.9230769" vertical-offset="714" max-vertical-offset="2465">
+              <caret line="48" column="22" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QuestionsRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PollBundle/Entity/QuestionsRepository.php">
+      <file leaf-file-name="Test.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/PollBundle/Entity/Test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="459">
-              <caret line="19" column="5" selection-start-line="14" selection-start-column="4" selection-end-line="19" selection-end-column="5" />
-              <folding>
-                <marker date="1454354650643" expanded="true" signature="376:435" placeholder="SELECT p FRO..PollBundle..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AnswersRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PollBundle/Entity/AnswersRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="459">
-              <caret line="17" column="59" selection-start-line="17" selection-start-column="59" selection-end-line="17" selection-end-column="59" />
-              <folding>
-                <marker date="1454354693960" expanded="true" signature="375:436" placeholder="SELECT p FRO..PollBundle..." />
-              </folding>
+            <state vertical-scroll-proportion="-1.3909091" vertical-offset="1326" max-vertical-offset="2414">
+              <caret line="25" column="63" selection-start-line="25" selection-start-column="63" selection-end-line="25" selection-end-column="63" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -174,6 +116,14 @@
         <option value="$PROJECT_DIR$/src/PollBundle/Entity/questions.php" />
         <option value="$PROJECT_DIR$/src/PollBundle/Entity/answers.php" />
         <option value="$PROJECT_DIR$/src/PollBundle/Controller/AnswersController.php" />
+        <option value="$PROJECT_DIR$/src/PollBundle/Controller/QuestionsController.php" />
+        <option value="$PROJECT_DIR$/src/PollBundle/Controller/TestsController.php" />
+        <option value="$PROJECT_DIR$/src/PollBundle/Entity/Tests.php" />
+        <option value="$PROJECT_DIR$/src/PollBundle/Entity/Questions.php" />
+        <option value="$PROJECT_DIR$/src/PollBundle/Entity/Answers.php" />
+        <option value="$PROJECT_DIR$/src/PollBundle/Entity/Answer.php" />
+        <option value="$PROJECT_DIR$/src/PollBundle/Entity/Question.php" />
+        <option value="$PROJECT_DIR$/src/PollBundle/Entity/Test.php" />
       </list>
     </option>
   </component>
@@ -532,60 +482,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PollBundle/Entity/Answers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-37.26923" vertical-offset="51" max-vertical-offset="2074">
-          <caret line="60" column="7" selection-start-line="60" selection-start-column="7" selection-end-line="60" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PollBundle/Entity/Tests.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="21.26923" vertical-offset="1403" max-vertical-offset="2295">
-          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PollBundle/Entity/Questions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-35.307693" vertical-offset="0" max-vertical-offset="3723">
-          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PollBundle/Entity/TestsRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="459">
-          <caret line="14" column="40" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="40" />
-          <folding>
-            <marker date="1454354527348" expanded="true" signature="367:423" placeholder="SELECT p FRO..PollBundle..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PollBundle/Entity/QuestionsRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="459">
-          <caret line="19" column="5" selection-start-line="14" selection-start-column="4" selection-end-line="19" selection-end-column="5" />
-          <folding>
-            <marker date="1454354650643" expanded="true" signature="376:435" placeholder="SELECT p FRO..PollBundle..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PollBundle/Entity/AnswersRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="459">
-          <caret line="17" column="59" selection-start-line="17" selection-start-column="59" selection-end-line="17" selection-end-column="59" />
-          <folding>
-            <marker date="1454354693960" expanded="true" signature="375:436" placeholder="SELECT p FRO..PollBundle..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PollBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-50.346153" vertical-offset="0" max-vertical-offset="1547">
@@ -596,10 +492,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PollBundle/Controller/AnswersController.php">
+    <entry file="file://$PROJECT_DIR$/src/PollBundle/Entity/Answer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5879699" vertical-offset="408" max-vertical-offset="2397">
-          <caret line="52" column="79" selection-start-line="52" selection-start-column="79" selection-end-line="52" selection-end-column="79" />
+        <state vertical-scroll-proportion="-3.9230769" vertical-offset="714" max-vertical-offset="2465">
+          <caret line="48" column="22" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PollBundle/Entity/Question.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="13.423077" vertical-offset="3120" max-vertical-offset="3808">
+          <caret line="164" column="55" selection-start-line="164" selection-start-column="55" selection-end-line="164" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PollBundle/Entity/Test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.3909091" vertical-offset="1326" max-vertical-offset="2414">
+          <caret line="25" column="63" selection-start-line="25" selection-start-column="63" selection-end-line="25" selection-end-column="63" />
           <folding />
         </state>
       </provider>

@@ -2,12 +2,13 @@
 namespace PollBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use \Doctrine\Common\Collections\ArrayCollection as ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass="TestsRepository")
- * @ORM\Table(name="tests")
+ * @ORM\Table(name="test")
  */
-class Tests
+class Test
 {
     /**
      * @ORM\Id
@@ -22,7 +23,7 @@ class Tests
     protected $test_name;
 
     /**
-     * @ORM\OneToMany(targetEntity="Questions", mappedBy="tests", cascade={"all"}, orphanRemoval=true )
+     * @ORM\OneToMany(targetEntity="Question", mappedBy="test",  cascade={"all"}, orphanRemoval=true)
      */
     protected $questions;
 
@@ -38,6 +39,8 @@ class Tests
 
 
 
+   
+
     /**
      * Get id
      *
@@ -52,7 +55,7 @@ class Tests
      * Set test_name
      *
      * @param string $testName
-     * @return Tests
+     * @return Test
      */
     public function setTestName($testName)
     {
@@ -75,7 +78,7 @@ class Tests
      * Set published
      *
      * @param boolean $published
-     * @return Tests
+     * @return Test
      */
     public function setPublished($published)
     {
@@ -97,10 +100,10 @@ class Tests
     /**
      * Add questions
      *
-     * @param \PollBundle\Entity\Questions $questions
-     * @return Tests
+     * @param \PollBundle\Entity\Question $questions
+     * @return Test
      */
-    public function addQuestion(\PollBundle\Entity\Questions $questions)
+    public function addQuestion(\PollBundle\Entity\Question $questions)
     {
         $this->questions[] = $questions;
 
@@ -110,9 +113,9 @@ class Tests
     /**
      * Remove questions
      *
-     * @param \PollBundle\Entity\Questions $questions
+     * @param \PollBundle\Entity\Question $questions
      */
-    public function removeQuestion(\PollBundle\Entity\Questions $questions)
+    public function removeQuestion(\PollBundle\Entity\Question $questions)
     {
         $this->questions->removeElement($questions);
     }
@@ -125,5 +128,10 @@ class Tests
     public function getQuestions()
     {
         return $this->questions;
+    }
+
+    public function __toString()
+    {
+        return strval($this->id);
     }
 }

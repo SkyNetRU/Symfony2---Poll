@@ -6,43 +6,43 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use PollBundle\Entity\Answers;
-use PollBundle\Form\AnswersType;
+use PollBundle\Entity\Answer;
+use PollBundle\Form\AnswerType;
 
 /**
- * Answers controller.
+ * Answer controller.
  *
- * @Route("/answers")
+ * @Route("/answer")
  */
-class AnswersController extends Controller
+class AnswerController extends Controller
 {
     /**
-     * Lists all Answers entities.
+     * Lists all Answer entities.
      *
-     * @Route("/", name="answers_index")
+     * @Route("/", name="answer_index")
      * @Method("GET")
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $answers = $em->getRepository('PollBundle:Answers')->findAll();
+        $answers = $em->getRepository('PollBundle:Answer')->findAll();
 
-        return $this->render('answers/index.html.twig', array(
+        return $this->render('answer/index.html.twig', array(
             'answers' => $answers,
         ));
     }
 
     /**
-     * Creates a new Answers entity.
+     * Creates a new Answer entity.
      *
-     * @Route("/new", name="answers_new")
+     * @Route("/new", name="answer_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
     {
-        $answer = new Answers();
-        $form = $this->createForm('PollBundle\Form\AnswersType', $answer);
+        $answer = new Answer();
+        $form = $this->createForm('PollBundle\Form\AnswerType', $answer);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -50,41 +50,41 @@ class AnswersController extends Controller
             $em->persist($answer);
             $em->flush();
 
-            return $this->redirectToRoute('answers_show', array('id' => $answer->getId()));
+            return $this->redirectToRoute('answer_show', array('id' => $answer->getId()));
         }
 
-        return $this->render('answers/new.html.twig', array(
+        return $this->render('answer/new.html.twig', array(
             'answer' => $answer,
             'form' => $form->createView(),
         ));
     }
 
     /**
-     * Finds and displays a Answers entity.
+     * Finds and displays a Answer entity.
      *
-     * @Route("/{id}", name="answers_show")
+     * @Route("/{id}", name="answer_show")
      * @Method("GET")
      */
-    public function showAction(Answers $answer)
+    public function showAction(Answer $answer)
     {
         $deleteForm = $this->createDeleteForm($answer);
 
-        return $this->render('answers/show.html.twig', array(
+        return $this->render('answer/show.html.twig', array(
             'answer' => $answer,
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-     * Displays a form to edit an existing Answers entity.
+     * Displays a form to edit an existing Answer entity.
      *
-     * @Route("/{id}/edit", name="answers_edit")
+     * @Route("/{id}/edit", name="answer_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, Answers $answer)
+    public function editAction(Request $request, Answer $answer)
     {
         $deleteForm = $this->createDeleteForm($answer);
-        $editForm = $this->createForm('PollBundle\Form\AnswersType', $answer);
+        $editForm = $this->createForm('PollBundle\Form\AnswerType', $answer);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -92,10 +92,10 @@ class AnswersController extends Controller
             $em->persist($answer);
             $em->flush();
 
-            return $this->redirectToRoute('answers_edit', array('id' => $answer->getId()));
+            return $this->redirectToRoute('answer_edit', array('id' => $answer->getId()));
         }
 
-        return $this->render('answers/edit.html.twig', array(
+        return $this->render('answer/edit.html.twig', array(
             'answer' => $answer,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -103,12 +103,12 @@ class AnswersController extends Controller
     }
 
     /**
-     * Deletes a Answers entity.
+     * Deletes a Answer entity.
      *
-     * @Route("/{id}", name="answers_delete")
+     * @Route("/{id}", name="answer_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, Answers $answer)
+    public function deleteAction(Request $request, Answer $answer)
     {
         $form = $this->createDeleteForm($answer);
         $form->handleRequest($request);
@@ -119,20 +119,20 @@ class AnswersController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('answers_index');
+        return $this->redirectToRoute('answer_index');
     }
 
     /**
-     * Creates a form to delete a Answers entity.
+     * Creates a form to delete a Answer entity.
      *
-     * @param Answers $answer The Answers entity
+     * @param Answer $answer The Answer entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm(Answers $answer)
+    private function createDeleteForm(Answer $answer)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('answers_delete', array('id' => $answer->getId())))
+            ->setAction($this->generateUrl('answer_delete', array('id' => $answer->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

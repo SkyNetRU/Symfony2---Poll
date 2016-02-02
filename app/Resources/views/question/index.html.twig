@@ -1,13 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Questions list</h1>
+    <h1>Question list</h1>
 
     <table>
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Test_id</th>
                 <th>Question</th>
                 <th>Type</th>
                 <th>Published</th>
@@ -17,18 +16,17 @@
         <tbody>
         {% for question in questions %}
             <tr>
-                <td><a href="{{ path('questions_show', { 'id': question.id }) }}">{{ question.id }}</a></td>
-                <td>{{ question.testid }}</td>
+                <td><a href="{{ path('question_show', { 'id': question.id }) }}">{{ question.id }}</a></td>
                 <td>{{ question.question }}</td>
                 <td>{% if question.type %}Yes{% else %}No{% endif %}</td>
                 <td>{% if question.published %}Yes{% else %}No{% endif %}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('questions_show', { 'id': question.id }) }}">show</a>
+                            <a href="{{ path('question_show', { 'id': question.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('questions_edit', { 'id': question.id }) }}">edit</a>
+                            <a href="{{ path('question_edit', { 'id': question.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -39,7 +37,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('questions_new') }}">Create a new entry</a>
+            <a href="{{ path('question_new') }}">Create a new entry</a>
         </li>
     </ul>
 {% endblock %}

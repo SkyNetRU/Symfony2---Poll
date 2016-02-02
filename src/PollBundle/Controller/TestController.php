@@ -6,43 +6,43 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use PollBundle\Entity\Tests;
-use PollBundle\Form\TestsType;
+use PollBundle\Entity\Test;
+use PollBundle\Form\TestType;
 
 /**
- * Tests controller.
+ * Test controller.
  *
- * @Route("/tests")
+ * @Route("/test")
  */
-class TestsController extends Controller
+class TestController extends Controller
 {
     /**
-     * Lists all Tests entities.
+     * Lists all Test entities.
      *
-     * @Route("/", name="tests_index")
+     * @Route("/", name="test_index")
      * @Method("GET")
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $tests = $em->getRepository('PollBundle:Tests')->findAll();
+        $tests = $em->getRepository('PollBundle:Test')->findAll();
 
-        return $this->render('tests/index.html.twig', array(
+        return $this->render('test/index.html.twig', array(
             'tests' => $tests,
         ));
     }
 
     /**
-     * Creates a new Tests entity.
+     * Creates a new Test entity.
      *
-     * @Route("/new", name="tests_new")
+     * @Route("/new", name="test_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
     {
-        $test = new Tests();
-        $form = $this->createForm('PollBundle\Form\TestsType', $test);
+        $test = new Test();
+        $form = $this->createForm('PollBundle\Form\TestType', $test);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -50,41 +50,41 @@ class TestsController extends Controller
             $em->persist($test);
             $em->flush();
 
-            return $this->redirectToRoute('tests_show', array('id' => $tests->getId()));
+            return $this->redirectToRoute('test_show', array('id' => $test->getId()));
         }
 
-        return $this->render('tests/new.html.twig', array(
+        return $this->render('test/new.html.twig', array(
             'test' => $test,
             'form' => $form->createView(),
         ));
     }
 
     /**
-     * Finds and displays a Tests entity.
+     * Finds and displays a Test entity.
      *
-     * @Route("/{id}", name="tests_show")
+     * @Route("/{id}", name="test_show")
      * @Method("GET")
      */
-    public function showAction(Tests $test)
+    public function showAction(Test $test)
     {
         $deleteForm = $this->createDeleteForm($test);
 
-        return $this->render('tests/show.html.twig', array(
+        return $this->render('test/show.html.twig', array(
             'test' => $test,
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-     * Displays a form to edit an existing Tests entity.
+     * Displays a form to edit an existing Test entity.
      *
-     * @Route("/{id}/edit", name="tests_edit")
+     * @Route("/{id}/edit", name="test_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, Tests $test)
+    public function editAction(Request $request, Test $test)
     {
         $deleteForm = $this->createDeleteForm($test);
-        $editForm = $this->createForm('PollBundle\Form\TestsType', $test);
+        $editForm = $this->createForm('PollBundle\Form\TestType', $test);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -92,10 +92,10 @@ class TestsController extends Controller
             $em->persist($test);
             $em->flush();
 
-            return $this->redirectToRoute('tests_edit', array('id' => $test->getId()));
+            return $this->redirectToRoute('test_edit', array('id' => $test->getId()));
         }
 
-        return $this->render('tests/edit.html.twig', array(
+        return $this->render('test/edit.html.twig', array(
             'test' => $test,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -103,12 +103,12 @@ class TestsController extends Controller
     }
 
     /**
-     * Deletes a Tests entity.
+     * Deletes a Test entity.
      *
-     * @Route("/{id}", name="tests_delete")
+     * @Route("/{id}", name="test_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, Tests $test)
+    public function deleteAction(Request $request, Test $test)
     {
         $form = $this->createDeleteForm($test);
         $form->handleRequest($request);
@@ -119,20 +119,20 @@ class TestsController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('tests_index');
+        return $this->redirectToRoute('test_index');
     }
 
     /**
-     * Creates a form to delete a Tests entity.
+     * Creates a form to delete a Test entity.
      *
-     * @param Tests $test The Tests entity
+     * @param Test $test The Test entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm(Tests $test)
+    private function createDeleteForm(Test $test)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('tests_delete', array('id' => $test->getId())))
+            ->setAction($this->generateUrl('test_delete', array('id' => $test->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

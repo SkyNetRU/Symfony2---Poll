@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class TestsType extends AbstractType
+class AnswerType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,8 +15,9 @@ class TestsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('test_name')
-            ->add('published')
+            ->add('answer')
+            ->add('correct')
+            ->add('question')
         ;
     }
     
@@ -26,7 +27,7 @@ class TestsType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'PollBundle\Entity\Tests'
+            'data_class' => 'PollBundle\Entity\Answer'
         ));
     }
 }

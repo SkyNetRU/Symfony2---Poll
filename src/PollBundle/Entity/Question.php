@@ -2,12 +2,13 @@
 namespace PollBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use \Doctrine\Common\Collections\ArrayCollection as ArrayCollection;
 
 /**
- * @ORM\Entity(repositoryClass="QuestionsRepository")
- * @ORM\Table(name="questions")
+ * @ORM\Entity(repositoryClass="QuestionRepository")
+ * @ORM\Table(name="question")
  */
-class Questions
+class Question
 {
     /**
      * @ORM\Id
@@ -17,20 +18,19 @@ class Questions
     protected $id;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    protected $test_id;
-
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Tests", inversedBy="questions")
-     * @ORM\JoinColumn(name="test_id", referencedColumnName="id")
      * @ORM\Column(type="string", length=255)
      */
     protected $question;
 
+
     /**
-     * @ORM\OneToMany(targetEntity="Answers", mappedBy="questions", cascade={"all"}, orphanRemoval=true )
+     * @ORM\ManyToOne(targetEntity="Test", inversedBy="questions")
+     */
+    protected $test;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="Answer", mappedBy="question", cascade={"all"}, orphanRemoval=true)
      */
     protected $answers;
 
@@ -40,14 +40,15 @@ class Questions
     }
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="boolean", nullable=true)
      */
-    protected $type;
+    protected $type = false;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
     protected $published = false;
+
 
 
 
@@ -67,7 +68,7 @@ class Questions
      * Set test_id
      *
      * @param integer $testId
-     * @return Questions
+     * @return Question
      */
     public function setTestId($testId)
     {
@@ -87,33 +88,10 @@ class Questions
     }
 
     /**
-     * Set question_id
-     *
-     * @param integer $questionId
-     * @return Questions
-     */
-    public function setQuestionId($questionId)
-    {
-        $this->question_id = $questionId;
-
-        return $this;
-    }
-
-    /**
-     * Get question_id
-     *
-     * @return integer 
-     */
-    public function getQuestionId()
-    {
-        return $this->question_id;
-    }
-
-    /**
      * Set question
      *
      * @param string $question
-     * @return Questions
+     * @return Question
      */
     public function setQuestion($question)
     {
@@ -135,8 +113,8 @@ class Questions
     /**
      * Set type
      *
-     * @param string $type
-     * @return Questions
+     * @param boolean $type
+     * @return Question
      */
     public function setType($type)
     {
@@ -148,7 +126,7 @@ class Questions
     /**
      * Get type
      *
-     * @return string 
+     * @return boolean 
      */
     public function getType()
     {
@@ -159,7 +137,7 @@ class Questions
      * Set published
      *
      * @param boolean $published
-     * @return Questions
+     * @return Question
      */
     public function setPublished($published)
     {
@@ -181,10 +159,10 @@ class Questions
     /**
      * Add answers
      *
-     * @param \PollBundle\Entity\Answers $answers
-     * @return Questions
+     * @param \PollBundle\Entity\Answer $answers
+     * @return Question
      */
-    public function addAnswer(\PollBundle\Entity\Answers $answers)
+    public function addAnswer(\PollBundle\Entity\Answer $answers)
     {
         $this->answers[] = $answers;
 
@@ -194,9 +172,9 @@ class Questions
     /**
      * Remove answers
      *
-     * @param \PollBundle\Entity\Answers $answers
+     * @param \PollBundle\Entity\Answer $answers
      */
-    public function removeAnswer(\PollBundle\Entity\Answers $answers)
+    public function removeAnswer(\PollBundle\Entity\Answer $answers)
     {
         $this->answers->removeElement($answers);
     }
@@ -209,5 +187,33 @@ class Questions
     public function getAnswers()
     {
         return $this->answers;
+    }
+
+    /**
+     * Set test
+     *
+     * @param \PollBundle\Entity\Test $test
+     * @return Question
+     */
+    public function setTest(\PollBundle\Entity\Test $test = null)
+    {
+        $this->test = $test;
+
+        return $this;
+    }
+
+    /**
+     * Get test
+     *
+     * @return \PollBundle\Entity\Test 
+     */
+    public function getTest()
+    {
+        return $this->test;
+    }
+
+    public function __toString()
+    {
+        return strval($this->id);
     }
 }

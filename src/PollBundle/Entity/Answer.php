@@ -5,9 +5,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="AnswersRepository")
- * @ORM\Table(name="answers")
+ * @ORM\Table(name="answer")
  */
-class Answers
+class Answer
 {
     /**
      * @ORM\Id
@@ -17,21 +17,21 @@ class Answers
     protected $id;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    protected $question_id;
-    /**
-     * @ORM\ManyToOne(targetEntity="Questions", inversedBy="answers")
-     * @ORM\JoinColumn(name="question_id", referencedColumnName="id")
      * @ORM\Column(type="string", length=255)
      */
     protected $answer;
+    /**
+     * @ORM\ManyToOne(targetEntity="Question", inversedBy="answers")
+     */
+    protected $question;
 
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
     protected $correct = false;
+
+
 
 
 
@@ -49,7 +49,7 @@ class Answers
      * Set question_id
      *
      * @param integer $questionId
-     * @return Answers
+     * @return Answer
      */
     public function setQuestionId($questionId)
     {
@@ -72,7 +72,7 @@ class Answers
      * Set answer
      *
      * @param string $answer
-     * @return Answers
+     * @return Answer
      */
     public function setAnswer($answer)
     {
@@ -95,7 +95,7 @@ class Answers
      * Set correct
      *
      * @param boolean $correct
-     * @return Answers
+     * @return Answer
      */
     public function setCorrect($correct)
     {
@@ -112,5 +112,28 @@ class Answers
     public function getCorrect()
     {
         return $this->correct;
+    }
+
+    /**
+     * Set question
+     *
+     * @param \PollBundle\Entity\Question $question
+     * @return Answer
+     */
+    public function setQuestion(\PollBundle\Entity\Question $question = null)
+    {
+        $this->question = $question;
+
+        return $this;
+    }
+
+    /**
+     * Get question
+     *
+     * @return \PollBundle\Entity\Question 
+     */
+    public function getQuestion()
+    {
+        return $this->question;
     }
 }

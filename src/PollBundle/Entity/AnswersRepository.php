@@ -12,10 +12,4 @@ use Doctrine\ORM\EntityRepository;
  */
 class AnswersRepository extends EntityRepository
 {
-    public function findAllOrderedByQuestion()
-    {
-        return $this->getEntityManager()
-            ->createQuery('SELECT p FROM PollBundle:Answers p ORDER BY p.question_id ASC')
-            ->getResult();
-    }
 }
