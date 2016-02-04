@@ -30,7 +30,7 @@ class TestController extends Controller
 
         return $this->render('test/index.html.twig', array(
             'tests' => $tests,
-            'count' => 0
+            'i'     => 0
         ));
     }
 
@@ -68,11 +68,19 @@ class TestController extends Controller
      */
     public function showAction(Test $test)
     {
+
         $deleteForm = $this->createDeleteForm($test);
+        $questions = $test->getQuestions();
+        foreach ($questions as $question){
+            $answers[$question->id] = $question->getAnswers();
+        }
+        //$answers =
 
         return $this->render('test/show.html.twig', array(
             'test' => $test,
             'delete_form' => $deleteForm->createView(),
+            'questions' => $questions,
+            'answers'  => $answers
         ));
     }
 

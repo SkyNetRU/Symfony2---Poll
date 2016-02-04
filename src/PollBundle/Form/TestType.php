@@ -16,6 +16,7 @@ class TestType extends AbstractType
     {
         $builder
             ->add('test_name')
+            ->add('test_pic')
             ->add('published')
         ;
     }

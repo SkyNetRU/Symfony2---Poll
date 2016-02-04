@@ -15,3 +15,9 @@ body {
 footer {
     margin: 50px 0;
 }
+
+.input-group-addon {
+    width: 39px;
+    text-align: center;
+    padding: 0;
+}

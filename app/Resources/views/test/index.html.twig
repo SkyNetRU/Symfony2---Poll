@@ -1,56 +1,40 @@
 {% extends 'base.html.twig' %}
 
 {% block container %}
-    <h1>Test list</h1>
+    <!-- Page Header -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Tests for you
+                <small>Test yourself</small>
+            </h1>
+        </div>
+    </div>
+    <!-- /.row -->
+    {% block row %}
 
-
-        {% set count = 0 %}
+        {% set i = 0 %}
         {% for test in tests %}
-
-            {% if count is even %}
+            {% if i is even %}
                 <div class="row">
             {% endif %}
 
-            <div class="col-md-6 portfolio-item">
-                <a href="{{ path('test_show', { 'id': test.id }) }}">{{ test.id }}
-                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-                </a>
-                <h3>
-                    <a href="{{ path('test_show', { 'id': test.id }) }}">{{ test.testname }}</a>
-                </h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-            </div>
+                <div class="col-md-6 portfolio-item">
+                    <a href="{{ path('test_show', { 'id': test.id }) }}">
+                        <img class="img-responsive" src="{{ asset(test.testpic) }}" alt="">
+                    </a>
 
-            <tr>
-                <td><a href="{{ path('test_show', { 'id': test.id }) }}">{{ test.id }}</a></td>
-                <td>{{ test.testname }}</td>
-                <td>{% if test.published %}Yes{% else %}No{% endif %}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('test_show', { 'id': test.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('test_edit', { 'id': test.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-                    {%  if count is odd %}
-                        </div>
-                    {% endif %}
-            {% set count = count + 1  %}
+                    <h3>
+                        <a href="{{ path('test_show', { 'id': test.id }) }}">{{ test.testname }}</a>
+                    </h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+                </div>
+            {% if i is odd %}
+                </div>
+            {% endif %}
+            {% set i = i + 1 %}
         {% endfor %}
+    {% endblock %}
 
 
-    <ul>
-        <li>
-            <a href="{{ path('test_new') }}">Create a new entry</a>
-        </li>
-    </ul>
-
-    {% block row %}
-
-{% endblock %}
 {% endblock %}
 

@@ -1,36 +1,36 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <h1>Test</h1>
+{% block container %}
+    <h1>{{ test.testname }}</h1>
+    <form>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ test.id }}</td>
-            </tr>
-            <tr>
-                <th>Test_name</th>
-                <td>{{ test.testname }}</td>
-            </tr>
-            <tr>
-                <th>Published</th>
-                <td>{% if test.published %}Yes{% else %}No{% endif %}</td>
-            </tr>
-        </tbody>
-    </table>
+    {% for question in test.questions %}
 
-    <ul>
-        <li>
-            <a href="{{ path('test_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('test_edit', { 'id': test.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+        <h3>{{question.question}}</h3>
+        {% for answer in answers[question.id] %}
+            {% if question.type %}
+                <div class="radio">
+                    <label><input type="radio" name="optradio">{{ answer.answer }}</label>
+                </div>
+            {% else %}
+                <div class="checkbox">
+                    <label><input type="checkbox" value="">{{ answer.answer }}</label>
+                </div>
+            {% endif %}
+
+
+
+        {% endfor %}
+    {% endfor %}
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                <input type="text" class="form-control" id="name" placeholder="Name">
+            </div>
+            <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
+                <input type="email" class="form-control" id="exampleInputAmount" placeholder="E-mail">
+            </div>
+        </div>
+    </form>
 {% endblock %}

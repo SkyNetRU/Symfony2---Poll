@@ -23,6 +23,11 @@ class Test
     protected $test_name;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $test_pic;
+
+    /**
      * @ORM\OneToMany(targetEntity="Question", mappedBy="test",  cascade={"all"}, orphanRemoval=true)
      */
     protected $questions;

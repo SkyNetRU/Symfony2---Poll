@@ -23,6 +23,11 @@ class Test
     protected $test_name;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $test_pic;
+
+    /**
      * @ORM\OneToMany(targetEntity="Question", mappedBy="test",  cascade={"all"}, orphanRemoval=true)
      */
     protected $questions;
@@ -133,5 +138,28 @@ class Test
     public function __toString()
     {
         return strval($this->id);
+    }
+
+    /**
+     * Set test_pic
+     *
+     * @param string $testPic
+     * @return Test
+     */
+    public function setTestPic($testPic)
+    {
+        $this->test_pic = $testPic;
+
+        return $this;
+    }
+
+    /**
+     * Get test_pic
+     *
+     * @return string 
+     */
+    public function getTestPic()
+    {
+        return $this->test_pic;
     }
 }
